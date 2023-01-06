@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+#include <ctime>
+using namespace std;
+int main () {
+vector<int> vec;
+int n;
+cout<<"No. of elements: ";
+cin>>n;
+for(int i=0; i<n; i++){
+int e = rand();
+vec.push_back(e);
+}
+clock_t time_req = clock();
+for(int j=1; j<n; j++){
+int key = vec[j];
+int i = j-1;
+while(i>=0 && vec[i] > key) {
+vec[i+1] = vec[i];
+i--;
+}
+vec[i+1] = key;
+}
+float time1 = (float) (clock() - time_req);
+cout<<"time taken:"<<time1<<endl;
+}
